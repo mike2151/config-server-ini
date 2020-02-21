@@ -21,6 +21,7 @@ Then, you can access the tool by typing: `config-server-ini` in a command line
 ### Homebrew
 
 `brew tap mike2151/tap`
+
 `brew install config-server-ini`
 
 Then, you can access the tool by typing: `config-server-ini` in a command line
