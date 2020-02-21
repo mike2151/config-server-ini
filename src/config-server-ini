@@ -5,13 +5,21 @@ CONFIG_LOCATION="${PWD}/${BASE_FILE}"
 case "$(uname -s)" in
 
    Darwin)
-     cp $CONFIG_LOCATION /usr/local/etc/hhvm/server.ini
-     echo 'Your default server.ini has been updated'
+     if test -f "$CONFIG_LOCATION"; then
+        cp $CONFIG_LOCATION /usr/local/etc/hhvm/server.ini
+        echo 'Your default server.ini has been updated.'
+     else 
+        echo 'config.ini or target file does not exist.'
+     fi
      ;;
 
    Linux)
-     cp $CONFIG_LOCATION /etc/hhvm/server.ini
-     echo 'Your default server.ini has been updated'
+     if test -f "$CONFIG_LOCATION"; then
+        cp $CONFIG_LOCATION /etc/hhvm/server.ini
+        echo 'Your default server.ini has been updated.'
+     else 
+        echo 'config.ini or target file does not exist.'
+     fi
      ;;
 
    *)
