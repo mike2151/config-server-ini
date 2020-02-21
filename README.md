@@ -6,7 +6,7 @@ Config Server.ini is a CLI used to set the default configuration for the `server
 replace server.ini. This project
 offers a script, `config-server-ini`, which by default looks in the calling directory for a `config.ini` file which has the contents that should go in the `server.ini` file. Then, the contents from `config.ini` are placed in `server.ini`, so the next time a server is run by default, the default settings are ready to go. 
 
-## Installation
+## Installation (Only Supports Linux and MacOS currently)
 
 ### Download/Clone The Repo And Place In Bin
 
