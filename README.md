@@ -19,6 +19,8 @@ Then, you can access the tool by typing: `config-server-ini` in a command line
 
 ## Usage
 
+`config-server-ini -help` or `config-server-ini -h`: Displays usage
+
 `config-server-ini` : looks in the current directory for a `config.ini` file and places the contents of the file in the `server.ini` file.
 
 `config-server-ini path/to/file` : places the contents of the file in the `server.ini` file.
