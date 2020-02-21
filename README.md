@@ -20,6 +20,8 @@ Then, you can access the tool by typing: `config-server-ini` in a command line
 ## Usage
 
 `config-server-ini` : looks in the current directory for a `config.ini` file and places the contents of the file in the `server.ini` file.
-`config-server-ini path/to/file` : places the contents of the file in the `server.ini` file
-`config-server-ini default` : restores the default `server.ini` file which comes when you first install HHVM and Hack
+
+`config-server-ini path/to/file` : places the contents of the file in the `server.ini` file.
+
+`config-server-ini default` : restores the default `server.ini` file which comes when you first install HHVM and Hack.
 

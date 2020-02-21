@@ -4,6 +4,16 @@ BASE_FILE=${1:-config.ini}
 
 # check to see if user specified default
 # if so, clear the file and then insert default content
+if [ "$BASE_FILE" = "-help" ] || [ "$BASE_FILE" = "-h" ]; then
+    HELP_TEXT="Usage:\n 
+    config-server-ini : looks in the current directory for a config.ini file and places the contents of the file in the server.ini file.\n
+    config-server-ini path/to/file : places the contents of the file in the server.ini file.\n
+    config-server-ini default : restores the default server.ini file which comes when you first install HHVM and Hack.
+    "
+    echo -e $HELP_TEXT
+    exit 0;
+fi
+
 if [ "$BASE_FILE" = "default" ]; then
     DEFAULT_CONTENTS="; Default Config\n\n
     pid = /usr/local/var/run/hhvm/pid\n
