@@ -1,6 +1,39 @@
 #!/bin/bash
 # copy the current config.ini file to the server.ini folder
 BASE_FILE=${1:-config.ini}
+
+# check to see if user specified default
+# if so, clear the file and then insert default content
+if [ "$BASE_FILE" = "default" ]; then
+    DEFAULT_CONTENTS="; Default Config\n\n
+    pid = /usr/local/var/run/hhvm/pid\n
+    hhvm.server.port = 8080\n
+    hhvm.server.default_document = index.php\n
+    hhvm.log.use_log_file = true\n
+    hhvm.log.file = /usr/local/var/log/hhvm/error.log\n
+    hhvm.repo.central.path = /usr/local/var/run/hhvm/hhvm.hhbc
+    "
+
+    case "$(uname -s)" in
+       Darwin)
+           > /usr/local/etc/hhvm/server.ini
+           echo -e $DEFAULT_CONTENTS >> /usr/local/etc/hhvm/server.ini
+           echo 'Your default server.ini has been updated.'
+         ;;
+
+       Linux)
+           > /etc/hhvm/server.ini
+           echo -e $DEFAULT_CONTENTS >> /etc/hhvm/server.ini
+           echo 'Your default server.ini has been updated.'
+         ;;
+
+       *)
+         echo 'Your OS is not supported.'
+         ;;
+    esac   
+    exit 0
+fi
+
 CONFIG_LOCATION="${PWD}/${BASE_FILE}"
 case "$(uname -s)" in
 
