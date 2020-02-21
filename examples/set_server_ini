@@ -1,0 +1,18 @@
+#!/bin/bash
+# copy the current config.ini file to the server.ini folder
+case "$(uname -s)" in
+
+   Darwin)
+     cp $PWD/config.ini /usr/local/etc/hhvm/server.ini
+     echo 'Your default server.ini has been updated'
+     ;;
+
+   Linux)
+     cp $PWD/config.ini /etc/hhvm/server.ini
+     echo 'Your default server.ini has been updated'
+     ;;
+
+   *)
+     echo 'Your OS is not supported.'
+     ;;
+esac
